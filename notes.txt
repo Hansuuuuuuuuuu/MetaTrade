@@ -1,0 +1,31 @@
+notes
+
+user has_many user_listings
+	image
+	username
+	name
+	location
+	rating
+
+user has_many user_reports
+
+	user_reports
+		user 1
+		user 2
+		reason
+
+
+
+user_listings
+	name (autocomplete from MTG db)
+	quantity
+	condition
+	price
+
+
+
+rails generate devise user	
+
+rails g scaffold user_reports reason:string reporter:integer user:references 
+
+rails g scaffold user_listings card_name:string quantity:integer condition:string price:decimal

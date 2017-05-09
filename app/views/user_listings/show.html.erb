@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card name:</strong>
+  <%= @user_listing.card_name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @user_listing.quantity %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @user_listing.condition %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @user_listing.price %>
+</p>
+
+<%= link_to 'Edit', edit_user_listing_path(@user_listing) %> |
+<%= link_to 'Back', user_listings_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card name</th>
+      <th>Quantity</th>
+      <th>Condition</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_listings.each do |user_listing| %>
+      <tr>
+        <td><%= user_listing.card_name %></td>
+        <td><%= user_listing.quantity %></td>
+        <td><%= user_listing.condition %></td>
+        <td><%= user_listing.price %></td>
+        <td><%= link_to 'Show', user_listing %></td>
+        <td><%= link_to 'Edit', edit_user_listing_path(user_listing) %></td>
+        <td><%= link_to 'Destroy', user_listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Listing', new_user_listing_path %>

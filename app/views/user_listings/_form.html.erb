@@ -1,0 +1,60 @@
+<%= simple_form_for(@user_listing) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :card_name, input_html: { class: "", autocomplete: "off"}%>
+    <%= f.input :quantity %>
+    <%= f.input :condition, collection: ['Near Mint','Slightly Played','Moderately Played','Heavily Played','Damaged','Near Mint Foil','Slightly Played Foil','Moderately Played Foil','Heavily Played Foil','Damaged Foil'] %>
+
+    <%= f.input :price %>
+  </div>
+<div class="cardimage"></div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.combobox1').combobox();
+  });
+</script>
+
+
+
+<script>
+var typingTimer;                //timer identifier
+var doneTypingInterval = 750;
+$("#user_listing_card_name").on('keyup', function () {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(doneTyping, doneTypingInterval);
+});
+
+$("#user_listing_card_name").on('keydown', function () {
+  clearTimeout(typingTimer);
+});
+
+function doneTyping () {
+  $('.cardimage #cardImg').remove();
+  var s = $("#user_listing_card_name").val()
+  , e = s.toString().length;
+
+  e > 2 ? $.ajax({
+      method: "GET",
+      url: "/cardcheck/",
+      data: {cn:s},
+      dataType: "json",
+      success: function(s) {
+          s != null ? (
+            console.log(s),
+            $("<img id=\"cardImg\""+ "src=\"" + s[0][1] + "\"/>").appendTo( $( ".cardimage" ) )
+            )
+           : console.log("cant find it yo")
+      }
+  }) : null
+}
+
+
+</script>
