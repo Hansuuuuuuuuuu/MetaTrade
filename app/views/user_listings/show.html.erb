@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
+<% @cardd = MTG::Card.where(name: @user_listing.card_name).all.map{|f| [f.name, f.image_url, f.text]}%>
+
+<div class ="row">
+	<div class="col-md-3">
+		<img id="cardImg" src= "<%=@cardd[0][1]%>">
+	</div>
+	<div class="col-md-4">
+		<h4><%= @cardd[0][0]	%></h4>
+		<div class="row">
+			<div class="col-md-12">
+				<p><%= @cardd[0][2]	%></p>
+			</div>	
+		</div>
+	</div>
+
+</div>
+
+
+<%= @user_listing.user.name %>
+<%= @user_listing.user.location %>
 
 <p>
   <strong>Card name:</strong>
