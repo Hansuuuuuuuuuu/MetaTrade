@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506172204) do
+ActiveRecord::Schema.define(version: 20170511185548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170506172204) do
     t.decimal  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_user_listings_on_user_id", using: :btree
   end
 
   create_table "user_reports", force: :cascade do |t|
@@ -53,9 +55,14 @@ ActiveRecord::Schema.define(version: 20170506172204) do
     t.date     "birthday"
     t.string   "description"
     t.string   "contact_number"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "user_listings", "users"
   add_foreign_key "user_reports", "users"
 end

@@ -1,1 +1,14 @@
 <h1> hey niggas </h1>
+
+<h2>new cards lmao</h2>
+<!--2rowsof10cards-->
+<% if !@new.empty?	%>
+<% @new.each_with_index do |n, index| %>
+<% card = MTG::Card.where(name: n[0]).all.map{|f| [f.name, f.image_url, f.text]}%>
+<div class="col-md-2" id="cl<%=index%>">
+	<img id="cardImg" src= "<%=card[0][1]%>">
+</div>
+	<% end %>
+<%else%>
+<h3>No new cards</h3>
+	<% end %>

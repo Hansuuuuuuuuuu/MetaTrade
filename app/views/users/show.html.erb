@@ -1,0 +1,32 @@
+<!--TODO:make two partials for this page, render one or another depending if current_user = @user -->
+<!--TODO: it seems like they want in-place editing hahahahahahahahahahahaha -->
+
+
+
+<h1> bitch it's <%= @user.email	%>'s profile </h1>
+
+Joined <%= @user.created_at	%>
+<%= @user.description	%>
+<%= @user.location	%>
+
+
+
+<h2>Listings</h2>
+<% if UserListing.where(:user_id => @user.id).exists? %>
+	<div class="row">
+	<% @user.user_listings.each_with_index do |listing, index|%>
+	<% card = MTG::Card.where(name: listing.card_name).all.map{|f| [f.name, f.image_url, f.text]}%>
+
+	<!--TODO: make "card" generic page that somehow adjusts based on param because jesus christ i cant even link to the fucking user_listing page what hell is this i have to query everything. THERE IS NO "LISTING" WIREFRAME BUT IT'S ON THE FUNCTIONS LIST IDK HOW THEY WANT ME TO DO THIS -->
+	<%= link_to(listing) do %>
+	<div class="col-md-2" id="cl<%=index%>">
+		<img id="cardImg" src= "<%=card[0][1]%>">
+	</div>
+	<% end %>
+	<% end %>
+</div>
+<% else %>
+
+<h4>The user has no listings</h4>
+
+<% end %>

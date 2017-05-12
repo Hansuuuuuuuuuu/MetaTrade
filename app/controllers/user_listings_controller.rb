@@ -19,9 +19,9 @@ class UserListingsController < ApplicationController
     respond_to do |format|
       if @card.present?
         if @card.count == 1
-          format.json { render json: @card.map{|f| [f.name, f.image_url]} }
+          format.json { render json: @card.map{|f| [f.name, f.image_url, f.text]} }
         else
-          format.json { render json: @card.map{|f| [f.name, f.image_url]} }
+          format.json { render json: @card.map{|f| [f.name, f.image_url, f.text]} }
         end
       else
         format.json { render json: 'null'}
@@ -42,7 +42,8 @@ class UserListingsController < ApplicationController
   # POST /user_listings
   # POST /user_listings.json
   def create
-    @user_listing = UserListing.new(user_listing_params)
+    @user_listing = current_user.user_listings.new(user_listing_params)
+
 
     respond_to do |format|
       if @user_listing.save
