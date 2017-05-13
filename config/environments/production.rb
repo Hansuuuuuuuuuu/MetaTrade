@@ -35,7 +35,7 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'metatrade.heroku.com',
+    :domain         => 'appa78928a6bae54591be094ba0d96b9e95.mailgun.org',
     :authentication => :plain,
   }
  
