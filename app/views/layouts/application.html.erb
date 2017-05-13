@@ -26,14 +26,15 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="javascript:void(0)">Home</a></li>
         <li><a href="javascript:void(0)">Cards</a></li>
-        <li><a href="javascript:void(0)">Traders</a></li>
+        <li><%= link_to traders_path do %>Traders<% end %></li>
+
 
         <%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left') do %>
           <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search'  %>
           <%= submit_tag "Submit", class: 'btn btn-default', :name => nil %>
         <% end %>
 
-        
+
 
 
         <% if user_signed_in? %>

@@ -35,7 +35,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'mtg_sdk'
-
+gem 'will_paginate', '~> 3.1.0'
+gem 'best_in_place'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

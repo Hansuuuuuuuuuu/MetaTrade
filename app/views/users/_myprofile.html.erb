@@ -1,4 +1,4 @@
-<h1> bitch it's your profile </h1>
+<h1> Your Profile </h1>
 
 <div class="row">
 	<div class="col-md-3">
@@ -7,8 +7,10 @@
 </div>
 <div class="row">
 	<div class="col-md-3">
-		<%= @user2.description	%>
+		<%= best_in_place @user2, :description, :as => :textarea, url:  edit_user_registration_path, :ok_button => 'Save', :cancel_button => 'Cancel',:activator => "#activator1" %>
+		<a href="#" id="activator1">Edit</a>
 	</div>
+
 </div>	
 <div class="row">	
 	<div class="col-md-3">

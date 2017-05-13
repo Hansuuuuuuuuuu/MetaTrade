@@ -1,0 +1,26 @@
+<h1>Traders</h1>	
+
+
+<%@traders.each do |t|%>
+
+<div class ="row panel panel-default">
+	<div class="col-md-3">
+		prof pic placeholder
+	</div>
+	<div class="col-md-4 ">
+		<%= link_to showuser_path(t) do	%>
+		<div class="panel-heading"><%= t.name	%> [rating placeholder]</div> <% end -%>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12 panel panel-default">
+					<p><%= t.description	%></p>
+				</div>	
+				<p><%= t.location%></p>
+			</div>
+		</div>
+	</div>
+
+</div>
+<% end %>
+
+<%= will_paginate @traders %>
