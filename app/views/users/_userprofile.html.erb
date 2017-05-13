@@ -1,5 +1,5 @@
 <h1> bitch it's <%= @user2.email	%>'s profile </h1>
-
+<%= image_tag @user2.avatar.url(:medium) %>
 Joined <%= @user2.created_at	%>
 <%= @user2.description	%>
 <%= @user2.location	%>

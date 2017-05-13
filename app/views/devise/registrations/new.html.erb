@@ -4,6 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :avatar, as: :file, label: "Profile Picture" %>
     <%= f.input :name, required: true %>
     <%= f.input :birthday, required: true, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] %>
     <%= f.input :email, required: true %>
