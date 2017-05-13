@@ -41,6 +41,12 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (6.6.0)
       execjs
+    aws-sdk (2.3.22)
+      aws-sdk-resources (= 2.3.22)
+    aws-sdk-core (2.3.22)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.3.22)
+      aws-sdk-core (= 2.3.22)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -91,6 +97,7 @@ GEM
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
+    jmespath (1.3.1)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -117,6 +124,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    mustermann (1.0.0)
     nio4r (2.0.0)
     nokogiri (1.7.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
@@ -130,6 +138,8 @@ GEM
     pg (0.20.0-x86-mingw32)
     puma (3.8.2)
     rack (2.0.1)
+    rack-protection (2.0.0)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -164,6 +174,7 @@ GEM
       railties (>= 4.2.0, < 5.1)
     roar (1.1.0)
       representable (~> 3.0.0)
+    ruby_http_client (3.1.0)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -171,9 +182,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sendgrid-ruby (4.3.3)
+      ruby_http_client (~> 3.0)
+      sinatra (>= 1.4.7, < 3)
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -212,6 +231,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  aws-sdk (~> 2.3.0)
   best_in_place
   bootstrap-sass
   byebug
@@ -225,6 +245,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
+  sendgrid-ruby
   simple_form
   tzinfo-data
   uglifier (>= 1.3.0)

@@ -39,6 +39,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'best_in_place'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3.0'	
+gem 'sendgrid-ruby'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
