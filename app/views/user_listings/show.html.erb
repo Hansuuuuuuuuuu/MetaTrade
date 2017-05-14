@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% @cardd = MTG::Card.where(name: @user_listing.card_name).all.map{|f| [f.name, f.image_url, f.text]}%>
-
+<%= image_tag @user_listing.user.avatar.url(:medium) %>
 <div class ="row">
 	<div class="col-md-3">
 		<img id="cardImg" src= "<%=@cardd[0][1]%>">
