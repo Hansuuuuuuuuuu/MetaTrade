@@ -9,7 +9,9 @@
 	</div>
 	<div class="col-md-4 ">
 		<%= link_to showuser_path(t) do	%>
-		<div class="panel-heading"><%= t.name	%> [rating placeholder]</div> <% end -%>
+		<div class="panel-heading"><%= t.name	%> <div class="overall-rating">
+    (Average Rating <span id="avgrat"><%= "%.2f" % t.average_rating %></span> Based on <span id="totalrat"><%= t.total_rating.to_i %></span>  rating/s)
+</div></div> <% end -%>
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-md-12 panel panel-default">
