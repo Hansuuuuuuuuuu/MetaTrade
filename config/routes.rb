@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   put '/users/:id' => 'users#update', as: :updateuser
   get '/pages/search_results/' => 'pages#search_results', as: :search
   get '/pages/card/' => 'pages#card', as: :card
+  get '/pages/allcards/' => 'pages#allcards', as: :allcards
+  get '/pages/setcards/' => 'pages#setcards', as: :setcards
   get '/traders/' => 'pages#traders', as: :traders
   end

@@ -1,0 +1,8 @@
+<% @sets.each do |s|	%>
+<%= link_to setcards_path(sn: s[1]) do %>
+<p><%= s[0]	%></p>
+<% end %>
+<% end -%>
+
+
+<%= will_paginate @sets %>
