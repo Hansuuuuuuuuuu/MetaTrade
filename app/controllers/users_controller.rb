@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 #before_filter :authenticate_user!
 
+
   def show
     @user2 = User.find(params[:id])
     
@@ -47,4 +48,6 @@ class UsersController < ApplicationController
     accessible = [:email,:username, :location, :name, :birthday, :description, :contact_number, :password, :password_confirmation, :remember_me] # extend with your own params
     params.require(:user).permit(accessible)
   end
+
+
 end
