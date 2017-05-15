@@ -1,4 +1,10 @@
-<h1> bitch it's <%= @user2.email	%>'s profile </h1>
+
+<input name="rating" value="0" id="rating_star" type="hidden" user="<%= @user2.id	%>" rater="<%= current_user	%>" />
+<div class="overall-rating">
+    (Average Rating <span id="avgrat"><%= "%.2f" % @user2.average_rating %></span> Based on <span id="totalrat"><%= @user2.total_rating.to_i %></span>  rating/s)
+</div>
+
+<h1> <%= @user2.name	%>'s profile </h1>
 <%= image_tag @user2.avatar.url(:medium) %>
 Joined <%= @user2.created_at	%>
 <%= @user2.description	%>

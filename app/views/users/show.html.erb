@@ -31,3 +31,35 @@
 <h4>The user has no listings</h4>
 
 <% end %>
+
+<script>
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+  $("#rating_star").codexworld_rating_widget({
+      starLength: '5',
+      initialValue: '<%="%.2f" % @user2.average_rating  %>',
+      callbackFunctionName: 'processRating',
+      imageDirectory: '<%=asset_path("star.png") 	%>',
+      inputAttr: 'user'
+  });
+});
+
+function processRating(val, attrVal){
+    $.ajax({
+        type: 'POST',
+        url: "/rate/",
+        data: 'user='+attrVal+'&ratingPoints='+val,
+        dataType: 'json',
+        success : function(data) {
+            if (data.status == 'ok') {
+                alert('Successfully rated.');
+                $('#avgrat').text(data.average_rating);
+                $('#totalrat').text(data.rating_number);
+            }else{
+                alert('Some problem occured, please try again.');
+            }
+        }
+    });
+}
+</script>

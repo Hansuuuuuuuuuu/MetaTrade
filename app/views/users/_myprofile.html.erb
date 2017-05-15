@@ -1,5 +1,10 @@
 <h1> Your Profile </h1>
 
+<input name="rating" value="0" id="rating_star" type="hidden" user="<%= @user2.id	%>" rater="<%= current_user	%>" />
+<div class="overall-rating">
+    (Average Rating <span id="avgrat"><%= @user2.average_rating %></span> Based on <span id="totalrat"><%= @user2.total_rating %></span>  rating)
+</div>
+
 <div class="row">
 	<div class="col-md-3">
 		<%= image_tag @user2.avatar.url(:medium) %>
