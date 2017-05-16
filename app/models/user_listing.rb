@@ -1,6 +1,6 @@
 class UserListing < ApplicationRecord
 	belongs_to :user
-	validates :card_name, :quantity, :condition, :shift, :price,presence: true
+	validates :card_name, :quantity, :condition,  :price,presence: true
 
 	
 end
