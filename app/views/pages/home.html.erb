@@ -6,7 +6,9 @@
 <% @new.each_with_index do |n, index| %>
 <% card = MTG::Card.where(name: n[0]).all.map{|f| [f.name, f.image_url, f.text]}%>
 <div class="col-md-2" id="cl<%=index%>">
+	<%= link_to card_path(cn: card[0][0]) do %>
 	<img id="cardImg" src= "<%=card[0][1]%>">
+	<% end %>
 </div>
 	<% end %>
 <%else%>
