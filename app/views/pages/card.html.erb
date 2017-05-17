@@ -40,9 +40,13 @@
           <td><%=listing.price%></td>
       	<td><%=listing.quantity%></td>
 		<td>
+      <% if user_signed_in? %>
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contact<%=index%>">
 	  			Contact Seller
 			</button>
+      <% else %>
+      <p>Sign in to contact the seller</p>
+      <% end %>
 		</td>
       	<div class="modal fade" id="contact<%= index	%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       	  <div class="modal-dialog" role="document">
