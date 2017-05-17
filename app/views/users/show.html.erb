@@ -1,13 +1,15 @@
 <!--TODO:make two partials for this page, render one or another depending if current_user = @user -->
 <!--TODO: it seems like they want in-place editing hahahahahahahahahahahaha -->
+<% if user_signed_in? %>
 <% if current_user.id == @user2.id %>
 <%= puts current_user.id	%>
   <%= render 'myprofile' %>
   <% else %>
   <%= render 'userprofile' %>
 <% end %>
-
-
+<% else %>
+<%= render 'userprofile'  %>
+<% end %>
 
 
 

@@ -24,10 +24,8 @@ class PagesController < ApplicationController
 	end
 
 	def allcards
-		require 'will_paginate/array'
 		@sets = MTG::Set.all
 		@sets = @sets.map{|f| [f.name, f.code]}
-		@sets = @sets.paginate(:page => 1, :per_page => 20)
 	end
 
 	def setcards
